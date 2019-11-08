@@ -319,7 +319,7 @@ class Job {
     def getTokenFromAdminConsole() {
         def userCredentials = getCredentialsFromSecret("admin-console-reader")
 
-        def clientSecret = getSecretField("admin-console-client", "clientSecret")
+        def clientSecret = getSecretField("admin-console-client")
 
         def dnsWildcard = platform.getJsonPathValue("cm", "user-settings", ".data.dns_wildcard")
 
