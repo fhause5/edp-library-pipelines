@@ -24,7 +24,7 @@ class Job {
 
     def type
     Script script
-    Platform platform
+    def platform = "openshift"
     def LATEST_TAG = "latest"
     def STABLE_TAG = "stable"
     def stages = [:]
