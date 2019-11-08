@@ -318,8 +318,7 @@ class Job {
 
     def getTokenFromAdminConsole() {
         def userCredentials = getCredentialsFromSecret("admin-console-reader")
-
-        def clientSecret = getSecretField("admin-console-client")
+        def clientCredentials = getCredentialsFromSecret("admin-console-client")
 
         def dnsWildcard = platform.getJsonPathValue("cm", "user-settings", ".data.dns_wildcard")
 
@@ -327,7 +326,7 @@ class Job {
                 httpMode: 'POST',
                 contentType: 'APPLICATION_FORM',
                 requestBody: "grant_type=password&username=${userCredentials.username}&password=${userCredentials.password}" +
-                        "&client_id=admin-console-client&client_secret=${clientSecret}",
+                        "&client_id=${clientCredentials.username}&client_secret=${clientCredentials.password}",
                 consoleLogResponseBody: true
 
         return new JsonSlurperClassic()
