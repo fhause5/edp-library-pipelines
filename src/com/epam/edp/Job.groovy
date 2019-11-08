@@ -317,7 +317,7 @@ class Job {
     }
 
     def getTokenFromAdminConsole() {
-        def userCredentials = getCredentialsFromSecret("ac-reader")
+        def userCredentials = getCredentialsFromSecret("admin-console-reader")
 
         def clientSecret = getSecretField("admin-console-client", "clientSecret")
 
